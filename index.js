@@ -42,7 +42,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 //change-1
-app.use(express.static(path.join(__dirname, '../Frontend/build')))
+app.use(express.static(path.join(__dirname, './Frontend/build')))
 
 let storage = multer.diskStorage({
     destination: function (request, file, callback) {
@@ -200,7 +200,7 @@ app.post('/uploadFile', upload.single('questionFile'), async (req, res) => {
 })
 //change-2
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Frontend/build/index.html'))
+    res.sendFile(path.join(__dirname, './Frontend/build/index.html'))
 
 })
 app.listen(port, () => {
